@@ -318,7 +318,14 @@ function defaultFetchOpts() {
 
 function getTracks() {
   // GET request to `${SERVER}/api/tracks`
-  return fetch(`${SERVER}/api/tracks`).then((res) => console.log(res));
+  return fetch(`${SERVER}/api/tracks`, {
+    ...defaultFetchOpts(),
+  })
+    .then((res) => {
+      console.log(res);
+      return res;
+    })
+    .catch((e) => alert(e));
 }
 
 function getRacers() {
